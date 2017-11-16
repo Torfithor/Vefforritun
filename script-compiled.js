@@ -1,10 +1,10 @@
-var url = 'videos.json';
+'use strict';
 
 function search() {
   var request = new XMLHttpRequest();
 
-  request.open('GET', url, true);
-  request.onload = function() {
+  request.open('GET', './videos.json', true);
+  request.onload = function () {
     var data = JSON.parse(request.responseText);
     console.log(data);
 
@@ -19,3 +19,7 @@ function search() {
   };
   request.send();
 };
+
+search();
+
+//# sourceMappingURL=script-compiled.js.map
