@@ -20,11 +20,39 @@ function search() {
 
 search();
 
-function play() {
-  //this eða video því videos þarf að vera á clobal
-  if (this.paused) {
-    this.play();
+//á button ekki vera í global og föllunum??
+var button = document.createElement("button");
+function PlayPause() {
+  var button = document.createElement("button");
+  if (mediaPlayer.paused || mediaPlayer.ended) {
+    button.title = "pause";
+    button.innerHTML = "pause";
+    button.className = "pause";
+    mediaPlayer.play();
   } else {
-    this.pause();
+    button.title = "play";
+    button.innerHTML = "play";
+    btn.className = "play";
+    mediaPlayer.pause();
+  }
+}
+function changeButtonType(button, value) {
+  button.title = value;
+  button.innerHTML = value;
+  button.className = value;
+}
+function stopPlayer() {
+  var buttonStop = document.createElement("button");
+  mediaPlayer.pause();
+  mediaPlayer.currentTime = 0;
+}
+function mute() {
+  var buttonMute = document.createElement("button");
+  if (mediaPlayer.muted) {
+    changeButtonType(button, "mute");
+    mediaPlayer.muted = false;
+  } else {
+    changeButtonType(button, "unmute");
+    mediaPlayer.muted = true;
   }
 }
