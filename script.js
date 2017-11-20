@@ -15,6 +15,8 @@ function search() {
     var catNew = data.categories[0];
     var catTeach = data.categories[1];
     var catFun = data.categories[2];
+
+    document.getElementById('bla').innerHTML = catNew;
   };
   request.send();
 };
