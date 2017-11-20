@@ -1,8 +1,7 @@
-
 function search() {
   var request = new XMLHttpRequest();
 
-  request.open('GET', './videos.json', true);
+  request.open("GET", "./videos.json", true);
   request.onload = function() {
     var data = JSON.parse(request.responseText);
     console.log(data);
@@ -17,6 +16,15 @@ function search() {
     var catFun = data.categories[2];
   };
   request.send();
-};
+}
 
 search();
+
+function play() {
+  //this eða video því videos þarf að vera á clobal
+  if (this.paused) {
+    this.play();
+  } else {
+    this.pause();
+  }
+}
