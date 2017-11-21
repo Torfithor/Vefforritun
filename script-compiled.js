@@ -11,6 +11,7 @@ function fetchJson() {
   request.onload = function () {
     var data = JSON.parse(request.response);
     time(data, 0);
+    myFunction(data.videos[1].video);
   };
   request.send();
 }
@@ -24,6 +25,17 @@ function time(video, n) {
   } else {
     return "Fyrir " + Math.round(days / 7) + " víkum síðan";
   }
+}
+
+function myFunction(videolink) {
+  var x = document.createElement("VIDEO");
+
+  x.setAttribute("src", videolink);
+
+  x.setAttribute("width", "320");
+  x.setAttribute("height", "240");
+  x.setAttribute("controls", "controls");
+  document.body.appendChild(x);
 }
 
 //# sourceMappingURL=script-compiled.js.map
