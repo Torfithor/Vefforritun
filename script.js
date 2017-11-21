@@ -16,43 +16,58 @@ function search() {
     var catFun = data.categories[2];
   };
   request.send();
+
+  //á button ekki vera í global og föllunum??
+  function showVideo() {
+    var divelement = document.createElement("div");
+    var video = document.createElement("video");
+    video.setAttribute("src", "./videos/small.mp4");
+    video.setAttribute("type", "video/mp4");
+    divelement.appendChild(video);
+    //body.appendChild(divelement);
+    console.log(video);
+  }
+  showVideo();
+  //  var button = document.createElement("button");
+  function showButton() {
+    var playButton;
+  }
+
+  function PlayPause() {
+    var button = document.createElement("button");
+    if (mediaPlayer.paused || mediaPlayer.ended) {
+      button.title = "pause";
+      button.innerHTML = "pause";
+      button.className = "pause";
+      mediaPlayer.play();
+    } else {
+      button.title = "play";
+      button.innerHTML = "play";
+      btn.className = "play";
+      mediaPlayer.pause();
+    }
+  }
+  function changeButtonType(button, value) {
+    button.title = value;
+    button.innerHTML = value;
+    button.className = value;
+  }
+  function stopPlayer() {
+    var buttonStop = document.createElement("button");
+    mediaPlayer.pause();
+    mediaPlayer.currentTime = 0;
+  }
+  function mute() {
+    var buttonMute = document.createElement("button");
+    if (mediaPlayer.muted) {
+      changeButtonType(button, "mute");
+      mediaPlayer.muted = false;
+    } else {
+      changeButtonType(button, "unmute");
+      mediaPlayer.muted = true;
+    }
+  }
+  //  request.send();
 }
 
 search();
-
-//á button ekki vera í global og föllunum??
-var button = document.createElement("button");
-function PlayPause() {
-  var button = document.createElement("button");
-  if (mediaPlayer.paused || mediaPlayer.ended) {
-    button.title = "pause";
-    button.innerHTML = "pause";
-    button.className = "pause";
-    mediaPlayer.play();
-  } else {
-    button.title = "play";
-    button.innerHTML = "play";
-    btn.className = "play";
-    mediaPlayer.pause();
-  }
-}
-function changeButtonType(button, value) {
-  button.title = value;
-  button.innerHTML = value;
-  button.className = value;
-}
-function stopPlayer() {
-  var buttonStop = document.createElement("button");
-  mediaPlayer.pause();
-  mediaPlayer.currentTime = 0;
-}
-function mute() {
-  var buttonMute = document.createElement("button");
-  if (mediaPlayer.muted) {
-    changeButtonType(button, "mute");
-    mediaPlayer.muted = false;
-  } else {
-    changeButtonType(button, "unmute");
-    mediaPlayer.muted = true;
-  }
-}
