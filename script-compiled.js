@@ -11,6 +11,7 @@ function fetchJson() {
 
   request.open('GET', './videos.json', true);
   request.onload = function () {
+
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.response);
       videoList = data;
