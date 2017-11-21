@@ -10,7 +10,7 @@
     request.onload = function() {
       var data = JSON.parse(request.response);
       time(data, 0);
-      myFunction(data.videos[1].video)
+      showVideoList()
     };
     request.send();
   }
@@ -28,13 +28,17 @@
 
   }
 
-  function myFunction(videolink) {
-    var x = document.createElement("VIDEO");
-
-    x.setAttribute("src",videolink);
+  function showVideoList() {
+    var body = document.querySelector("body");
+    var div = document.createElement("div");
+    var img = document.createElement("img");
+    img.setAttribute("src","./videos/16-9.png")
+    div.appendChild(img);
+    body.appendChild(div);
+//    document.div.appendChild("img");
+/*    x.setAttribute("src",videolink);
 
     x.setAttribute("width", "320");
     x.setAttribute("height", "240");
-    x.setAttribute("controls", "controls");
-    document.body.appendChild(x);
+    x.setAttribute("controls", "controls");*/
 }
