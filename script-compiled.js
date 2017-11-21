@@ -16,14 +16,20 @@ function fetchJson() {
   request.send();
 }
 
-function time(video, n) {
+function time(data, n) {
   var now = Date.now();
-  var difference = now - video.videos[n].created;
+  var difference = now - data.videos[n].created;
   var days = difference / 1000 / 3600 / 24;
   if (days < 7) {
-    return "Fyrir " + days + " dögum síðan";
+    var daysAgo = document.createElement("p");
+    var daysAgoText = document.createTextNode("Fyrir " + days + " dögum síðan");
+    daysAgo.appendChild(daysAgoText);
+    document.querySelector("body").appendChild(daysAgo);
   } else {
-    return "Fyrir " + Math.round(days / 7) + " víkum síðan";
+    var weeksAgo = document.createElement("p");
+    var weeksAgoText = document.createTextNode("Fyrir " + Math.round(days / 7) + " víkum síðan");
+    weeksAgo.appendChild(weeksAgoText);
+    document.querySelector("body").appendChild(weeksAgo);
   }
 }
 
