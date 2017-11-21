@@ -1,38 +1,38 @@
+var videoList = new Object();
 
-function search() {
+document.addEventListener('DOMContentLoaded', function () {
+  fetchJson();
+
+});
+
+function fetchJson() {
   var request = new XMLHttpRequest();
 
   request.open('GET', './videos.json', true);
   request.onload = function() {
-    var data = JSON.parse(request.responseText);
-    console.log(data);
 
-    var id1 = data.videos[0];
-    var id2 = data.videos[1];
-    var id3 = data.videos[2];
-    var id4 = data.videos[3];
-
-    var catNew = data.categories[0];
-    var catTeach = data.categories[1];
-    var catFun = data.categories[2];
-/*
-    document.getElementById('catNewTitle').innerHTML = catNew.title;
-    document.getElementById('catTeachTitle').innerHTML = catTeach.title;
-    document.getElementById('catFunTitle').innerHTML = catFun.title;
-*/
-    for (var i=0; i < data.categories.length; i++) {
-      console.log(data.categories[i].title);
+    if (request.status >= 200 && request.status < 400) {
+      var data = JSON.parse(request.response);
+      videoList = data;
+    } else {
+      showError('Villa kom upp');
     }
-
-    for (var i=0; i<data.videos.length; i++) {
-      console.log(data.videos[i].title);
-    }
-/*
-    for (var i=0; i<catFun.videos.length; i++) {
-      catFun.videos[i];
-    }*/
   };
   request.send();
 };
 
-search();
+console.log(videoList);
+/*
+function time(video) {
+  var now = Date.now();
+  var difference = now - video.videos.created;
+  var days = difference/1000/3600/24;
+  if (days < 7) {
+    return "Fyrir " + days + " dögum síðan";
+  }
+  else {
+    return "Fyrir " + Math.round(days/7) + " víkum síðan";
+  }
+}
+console.log(time(videoList));
+*/
