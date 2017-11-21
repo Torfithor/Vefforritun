@@ -6,21 +6,10 @@
   function fetchJson() {
     var request = new XMLHttpRequest();
 
-<<<<<<< HEAD
     request.open('GET', './videos.json', true);
     request.onload = function() {
-=======
-function fetchJson() {
-  var request = new XMLHttpRequest();
-
-  request.open('GET', './videos.json', true);
-  request.onload = function() {
-
-    if (request.status >= 200 && request.status < 400) {
->>>>>>> 837bc0fbd66b8f81748741c410d5d1377142db94
       var data = JSON.parse(request.response);
       time(data, 0);
-      console.log(time(data, 0));
     };
     request.send();
   }
@@ -35,4 +24,5 @@ function fetchJson() {
     else {
       return "Fyrir " + Math.round(days/7) + " víkum síðan";
     }
+
   }
