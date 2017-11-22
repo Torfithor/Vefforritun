@@ -9,19 +9,21 @@
     request.open('GET', './videos.json', true);
     request.onload = function() {
       var data = JSON.parse(request.response);
-      time(data, 0);
       showVideoList(data)
     };
     request.send();
   }
+
+// Sýnir myndbandalista
+// TODO module utan um showVideoList
 
   function showVideoList(data) {
     var body = document.querySelector("body");
     var div = document.createElement("div");
     var catNo = data.categories.length;
 
-    showHeading(data);
-    function showHeading(data) {
+    showCategory(data);
+    function showCategory(data) { // Birtir allt fyrir hvert category á myndbandalista
       for (var i=0;i<catNo;i++) {
         var div2 = document.createElement("div");
         body.appendChild(div);
@@ -30,36 +32,43 @@
         var text = document.createTextNode(data.categories[i].title);
         h2.appendChild(text);
         div.appendChild(div2);
+        div2.setAttribute("class","cat__" + i);
+        showPoster(data, i);
     }
 
-    showPoster(data);
-    function showPoster(data) {
-      for (var i=0;i<catNo;i++) {
-        var j=0
-        while (j<data.categories[i].videos.length) {
+    function showPoster(data, i) { // Sýnir poster fyrir myndbönd hvers category
+        for (var j=0;j<data.categories[i].videos.length;j++) {
+          var div3 = document.createElement("div");
           var img = document.createElement("img");
-          div2.appendChild(img);
-          img.setAttribute("src",data.videos[i].poster);
+          div2.appendChild(div3)
+          div3.appendChild(img);
           var x = data.categories[i].videos[j];
-          img.setAttribute("src",data.videos[x].poster);
-          console.log(x);
-          j++;
-        }
+          img.setAttribute("src",data.videos[x-1].poster);
+          img.setAttribute("width","25%");
+          img.setAttribute("height","25%");
+//          showTitle(data, i, j);
       }
     }
 
     /* TODO
-    showTitle(data);
-    function showTitle(data) {
 
+    showTitle(data); // Sýnir titil hvers myndbands þar sem það birtist
+    function showTitle(data, i, j) {
+      var div3 = document.createElement("div");
+      var p = document.createElement("p");
+      var title = document.createTextNode(data.videos[x-1].title);
+      var x = data.categories[i].videos[j];
+      div3.appendChild(p);
+      p.appendChild(title);
+//      var x = data.categories[i].videos[j];
+//      img.setAttribute("src",data.videos[x-1].poster);
     }
-
-    showDuration(data);
+    showDuration(data); // Sýnir lengd hvers myndbands þar sem það birtist
     function showDuration(data) {
 
     }
 
-    showCreated(data, n);                     //ATH n
+    showCreated(data, n); // Sýnir aldur hvers myndbands þar sem það birtist                     //ATH n
     function showCreated(data, n) {
       var now = Date.now();
       var difference = now - data.videos[n].created;
@@ -79,9 +88,9 @@
 
     }
 
-    append a href með querystring? Una?
+  //  append a href með querystring? Una?
 
-    */
+*/
   }
 
 /*    img.setAttribute("src","./videos/16-9.png")
