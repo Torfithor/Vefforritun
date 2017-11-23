@@ -76,9 +76,9 @@ function showVideoList(data) {
     function showPoster(data, videoID) {
       // Sýnir poster fyrir hvert myndband í category
       //  þessa div4 skilgreiningu frekar?
-      //      var div4 = document.querySelector(".vid__" + (videoID+1));
+      var div3 = document.querySelector(".vid__" + (videoID + 1));
       var div4 = document.createElement("div");
-      div2.appendChild(div4);
+      div3.appendChild(div4);
       var img = document.createElement("img");
       //div4.appendChild(img);
       img.setAttribute("src", data.videos[videoID].poster);
@@ -89,18 +89,20 @@ function showVideoList(data) {
 
     function showTitle(data, videoID) {
       // Sýnir titil hvers myndbands þar sem það birtist
-      var cat = document.querySelector(".cat__" + i);
+      //    var cat = document.querySelector(".cat__" + i);
+      var div3 = document.querySelector(".vid__" + (videoID + 1));
       var p = document.createElement("p");
       var videoTitle = document.createTextNode(data.videos[videoID].title);
-      cat.appendChild(p);
+      div3.appendChild(p);
       p.appendChild(videoTitle);
-      makeLink(p, cat);
+      makeLink(p, div3);
     }
 
     function showCreated(data, videoID) {
       // Sýnir aldur hvers myndbands þar sem það birtist
       var now = Date.now();
       var difference = now - data.videos[videoID].created;
+      var div3 = document.querySelector(".vid__" + (videoID + 1));
       var days = difference / 1000 / 3600 / 24;
       if (days < 7) {
         var daysAgo = document.createElement("p");
@@ -110,7 +112,7 @@ function showVideoList(data) {
           var daysAgoText = document.createTextNode("Fyrir " + days + " dögum síðan");
         }
         daysAgo.appendChild(daysAgoText);
-        document.querySelector(".cat__" + i).appendChild(daysAgo);
+        div3.appendChild(daysAgo);
         makeLink(daysAgo, document.querySelector(".cat__" + i));
       } else if (days < 30) {
         var weeksAgo = document.createElement("p");
@@ -120,7 +122,7 @@ function showVideoList(data) {
           var weeksAgoText = document.createTextNode("Fyrir " + Math.round(days / 7) + " vikum síðan");
         }
         weeksAgo.appendChild(weeksAgoText);
-        document.querySelector(".cat__" + i).appendChild(weeksAgo);
+        div3.appendChild(weeksAgo);
         makeLink(weeksAgo, document.querySelector(".cat__" + i));
       } else if (days < 365) {
         var monthsAgo = document.createElement("p");
@@ -130,7 +132,7 @@ function showVideoList(data) {
           var monthsAgoText = document.createTextNode("Fyrir " + Math.round(days / 30) + " mánuðum síðan");
         }
         monthsAgo.appendChild(monthsAgoText);
-        document.querySelector(".cat__" + i).appendChild(monthsAgo);
+        div3.appendChild(monthsAgo);
         makeLink(monthsAgo, document.querySelector(".cat__" + i));
       } else {
         var yearsAgo = document.createElement("p");
@@ -140,7 +142,7 @@ function showVideoList(data) {
           var yearsAgoText = document.createTextNode("Fyrir " + Math.round(days / 365) + " árum síðan");
         }
         yearsAgo.appendChild(yearsAgoText);
-        document.querySelector(".cat__" + i).appendChild(yearsAgo);
+        div3.appendChild(yearsAgo);
         makeLink(yearsAgo, document.querySelector(".cat__" + i));
       }
     }
