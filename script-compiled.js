@@ -10,8 +10,12 @@ function fetchJson() {
   request.open('GET', './videos.json', true);
   request.onload = function () {
     var data = JSON.parse(request.response);
-    time(data, 0);
-    myFunction(data.videos[1].video);
+    if (request.status >= 200 && request.status < 400) {
+      time(data, 0);
+      myFunction(data.videos[1].video);
+    } else {
+      alert('Villa kom upp!');
+    }
   };
   request.send();
 }
