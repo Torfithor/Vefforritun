@@ -51,12 +51,12 @@ function showVideoList(data) {
         var div3 = document.createElement("div");
         div3.setAttribute("class", "vid__" + (videoID + 1));
         div2.appendChild(div3);
-        var a = document.createElement("a");
-        div2.appendChild(a);
-        var videoData = document.createTextNode(profa(data, videoID));
-        a.appendChild(div3);
-        div3.appendChild(videoData);
-        a.setAttribute("href", "http://www.hi.is");
+        //var a = document.createElement("a");
+        //div2.appendChild(a);
+        profa(data, videoID);
+        //a.appendChild(div3);
+        //div3.appendChild(videoData);
+        //a.setAttribute("href","http://www.hi.is");
         /*        showPoster(data, videoID); // kalla á föllin með div3.appendChild(showXYZ)?
                 showTitle(data, videoID);
                 showCreated(data, videoID);
@@ -80,10 +80,11 @@ function showVideoList(data) {
       var div4 = document.createElement("div");
       div2.appendChild(div4);
       var img = document.createElement("img");
-      div4.appendChild(img);
+      //div4.appendChild(img);
       img.setAttribute("src", data.videos[videoID].poster);
       img.setAttribute("width", "25%");
       img.setAttribute("height", "25%");
+      makeLink(img, div4);
     }
 
     function showTitle(data, videoID) {
@@ -93,6 +94,7 @@ function showVideoList(data) {
       var videoTitle = document.createTextNode(data.videos[videoID].title);
       cat.appendChild(p);
       p.appendChild(videoTitle);
+      makeLink(p, cat);
     }
 
     function showCreated(data, videoID) {
@@ -109,6 +111,7 @@ function showVideoList(data) {
         }
         daysAgo.appendChild(daysAgoText);
         document.querySelector(".cat__" + i).appendChild(daysAgo);
+        makeLink(daysAgo, document.querySelector(".cat__" + i));
       } else if (days < 30) {
         var weeksAgo = document.createElement("p");
         if (Math.round(days / 7) == 1) {
@@ -118,6 +121,7 @@ function showVideoList(data) {
         }
         weeksAgo.appendChild(weeksAgoText);
         document.querySelector(".cat__" + i).appendChild(weeksAgo);
+        makeLink(weeksAgo, document.querySelector(".cat__" + i));
       } else if (days < 365) {
         var monthsAgo = document.createElement("p");
         if (Math.round(days / 30) == 1) {
@@ -127,6 +131,7 @@ function showVideoList(data) {
         }
         monthsAgo.appendChild(monthsAgoText);
         document.querySelector(".cat__" + i).appendChild(monthsAgo);
+        makeLink(monthsAgo, document.querySelector(".cat__" + i));
       } else {
         var yearsAgo = document.createElement("p");
         if (Math.round(days / 365) % 10 == 1 || (Math.round(days / 365) - 11) % 100 != 0) {
@@ -136,6 +141,7 @@ function showVideoList(data) {
         }
         yearsAgo.appendChild(yearsAgoText);
         document.querySelector(".cat__" + i).appendChild(yearsAgo);
+        makeLink(yearsAgo, document.querySelector(".cat__" + i));
       }
     }
 
@@ -169,7 +175,15 @@ function showVideoList(data) {
       }
       cat.appendChild(p);
       p.appendChild(videoLength);
+      makeLink(p, cat);
     }
+  }
+
+  function makeLink(child, parent) {
+    var link = document.createElement("a");
+    link.setAttribute("href", "https://hi.is");
+    link.appendChild(child);
+    parent.appendChild(link);
   }
 }
 
