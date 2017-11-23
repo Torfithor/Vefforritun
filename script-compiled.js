@@ -54,7 +54,7 @@ function showVideoList(data) {
     }
 
     /* TODO
-      showTitle(data); // Sýnir titil hvers myndbands þar sem það birtist
+     showTitle(data); // Sýnir titil hvers myndbands þar sem það birtist
     function showTitle(data, i, j) {
       var div3 = document.createElement("div");
       var p = document.createElement("p");
@@ -67,8 +67,8 @@ function showVideoList(data) {
     }
     showDuration(data); // Sýnir lengd hvers myndbands þar sem það birtist
     function showDuration(data) {
-      }
-      showCreated(data, n); // Sýnir aldur hvers myndbands þar sem það birtist                     //ATH n
+     }
+     showCreated(data, n); // Sýnir aldur hvers myndbands þar sem það birtist                     //ATH n
     function showCreated(data, n) {
       var now = Date.now();
       var difference = now - data.videos[n].created;
@@ -85,7 +85,7 @@ function showVideoList(data) {
         weeksAgo.appendChild(weeksAgoText);
         document.querySelector("body").appendChild(weeksAgo);
       }
-      }
+     }
     //  append a href með querystring? Una?
     */
   }
