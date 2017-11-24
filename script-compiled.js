@@ -27,48 +27,54 @@ function time(video, n) {
   }
 }
 
-function myFunction(videolink) {
-  var x = document.createElement("VIDEO");
-
-  x.setAttribute("src", videolink);
-
-  x.setAttribute("width", "320");
-  x.setAttribute("height", "240");
-  x.setAttribute("controls", "controls");
-  document.body.appendChild(x);
-}
-
-//á button ekki vera í global og föllunum??
-/*  function showVideo() {
-    var divelement = document.createElement("div");
-    var video = document.createElement("video");
-    video.setAttribute("src", "./videos/small.mp4");
-    video.setAttribute("type", "video/mp4");
-    divelement.appendChild(video);
-    //body.appendChild(divelement);
-    console.log(video);
-  }
-  showVideo();*/
-//  var button = document.createElement("button");
-
-function showButton() {
+/*function myFunction(videolink) {
   var body = document.querySelector("body");
-  var divelement = document.createElement("div");
-  var img = document.createElement("img");
-  img.setAttribute("src", "./img/back.svg");
-  img.setAttribute("src", "./img/fullscreen.svg");
-  img.setAttribute("src", "./img/mute.svg");
-  img.setAttribute("src", "./img/next.svg");
-  img.setAttribute("src", "./img/pause.svg");
-  img.setAttribute("src", "./img/play.svg");
-  img.setAttribute("src", "./img/unmute.svg");
-  divelement.appendChild(img);
-  body.appendChild(divelement);
+  var a = document.createElement("a");
+  //  a.setAttribute("href");
+    var x = document.createElement("VIDEO");
+
+    x.setAttribute("src", videolink);
+    x.setAttribute("width", "320");
+    x.setAttribute("height", "240");
+    x.setAttribute("controls", "controls");
+  a.appendChild(x);
+  body.appendChild(a);
 }
-showButton();
+myFunction();*/
+
+function myFunction(videoID) {
+  var body = document.querySelector("body");
+  var a = document.createElement("a");
+  var video = document.createElement("VIDEO");
+  var divelement = document.createElement("div");
+  video.setAttribute("src", videoID);
+
+  var buttonPlayPause = document.createElement("button");
+  buttonPlayPause.className = "PlayPause";
+  var buttonMute = document.createElement("button");
+  buttonMute.className = "Mute";
+  var buttonStop = document.createElement("button");
+  buttonStop.className = "Stop";
+  var buttonBack = document.createElement("button");
+  buttonBack.className = "Back";
+  var buttonForward = document.createElement("button");
+  buttonForward.className = "Forward";
+
+  divelement.appendChild(buttonPlayPause);
+  divelement.appendChild(buttonMute);
+  divelement.appendChild(buttonStop);
+  divelement.appendChild(buttonBack);
+  divelement.appendChild(buttonForward);
+  a.appendChild(video);
+  a.appendChild(divelement);
+  body.appendChild(a);
+
+  //  x.appendChild(divelement);
+}
+//showButton();
 
 function PlayPause() {
-  var button = document.createElement("button");
+  var buttonPlayPause = querySelector("play");
   if (mediaPlayer.paused || mediaPlayer.ended) {
     button.title = "pause";
     button.innerHTML = "pause";
@@ -87,12 +93,12 @@ function changeButtonType(button, value) {
   button.className = value;
 }
 function stopPlayer() {
-  var buttonStop = document.createElement("button");
+  var buttonStop = querySelector("button");
   mediaPlayer.pause();
   mediaPlayer.currentTime = 0;
 }
 function mute() {
-  var buttonMute = document.createElement("button");
+  var buttonMute = querySelector("button");
   if (mediaPlayer.muted) {
     changeButtonType(button, "mute");
     mediaPlayer.muted = false;
