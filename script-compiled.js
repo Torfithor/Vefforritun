@@ -82,8 +82,6 @@ function showVideoList(data) {
       var img = document.createElement("img");
       //div4.appendChild(img);
       img.setAttribute("src", data.videos[videoID].poster);
-      img.setAttribute("width", "25%");
-      img.setAttribute("height", "25%");
       makeLink(img, div4, videoID);
     }
 
