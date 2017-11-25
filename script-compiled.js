@@ -1,4 +1,7 @@
 "use strict";
+<link rel="stylesheet" href="styles.css">
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   fetchJson();
@@ -49,23 +52,24 @@ function myFunction(videoID) {
   var divelement = document.createElement("div");
   video.setAttribute("src", videoID);
 
+  var buttonBack = document.createElement("button");
+  buttonBack.className = "Back";
   var buttonPlayPause = document.createElement("button");
   buttonPlayPause.className = "PlayPause";
   var buttonMute = document.createElement("button");
   buttonMute.className = "Mute";
   var buttonStop = document.createElement("button");
   buttonStop.className = "Stop";
-  var buttonBack = document.createElement("button");
-  buttonBack.className = "Back";
   var buttonForward = document.createElement("button");
   buttonForward.className = "Forward";
   var buttonFullscreen = document.createElement("button");
   buttonFullscreen.className = "Fullscreen";
 
-  divelement.appendChild(buttonPlayPause);
-  divelement.appendChild(buttonMute);
-  divelement.appendChild(buttonStop);
   divelement.appendChild(buttonBack);
+  divelement.appendChild(buttonPlayPause);
+  divelement.appendChild(buttonStop);
+  divelement.appendChild(buttonMute);
+  //Fullscreen takki
   divelement.appendChild(buttonForward);
   divelement.appendChild(buttonFullscreen);
   a.appendChild(video);
