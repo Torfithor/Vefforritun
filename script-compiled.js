@@ -59,12 +59,15 @@ function myFunction(videoID) {
   buttonBack.className = "Back";
   var buttonForward = document.createElement("button");
   buttonForward.className = "Forward";
+  var buttonFullscreen = document.createElement("button");
+  buttonFullscreen.className = "Fullscreen";
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
   divelement.appendChild(buttonStop);
   divelement.appendChild(buttonBack);
   divelement.appendChild(buttonForward);
+  divelement.appendChild(buttonFullscreen);
   a.appendChild(video);
   a.appendChild(divelement);
   body.appendChild(a);
