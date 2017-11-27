@@ -26,6 +26,15 @@ h2 {
   padding: 0 10px;
   font-size: 2rem;
 }
+.poster{
+  margin:none;
+  padding: none;
+
+}
+
+.vid__1{
+  max-width: 10%;
+}
 
 .p {
   position: absolute;
