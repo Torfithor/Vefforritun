@@ -63,6 +63,7 @@ function myFunction(data, videoId) {
   buttonFullscreen.className = "Fullscreen";
   var buttonTilBaka = document.createElement("button");
   buttonTilBaka.className = "TilBaka";
+  buttonTilBaka.innerHTML = "Til baka";
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
