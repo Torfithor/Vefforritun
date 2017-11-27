@@ -8,7 +8,8 @@ function fetchJson() {
   request.open("GET", "./videos.json", true);
   request.onload = function() {
     var data = JSON.parse(request.response);
-    myFunction(data.videos[1].video);
+    var x = location.search.substring(4);
+    myFunction(data, x);
   };
   request.send();
 }
@@ -28,26 +29,35 @@ function fetchJson() {
 }
 myFunction();*/
 
-function myFunction(videoID) {
+function myFunction(data, videoId) {
+  var dataVideos = data.videos[videoId - 1].video;
+
+  var videotitle = document.createElement("h3");
+  var text = document.createTextNode(data.videos[videoId].title);
+  videotitle.appendChild(text);
   var body = document.querySelector("body");
   var a = document.createElement("a");
   //  video.id= "video";
   var video = document.createElement("VIDEO");
   var divelement = document.createElement("div");
-  video.setAttribute("src", videoID);
+  video.setAttribute("src", dataVideos);
 
   var buttonPlayPause = document.createElement("button");
   buttonPlayPause.className = "PlayPause";
-  buttonPlayPause.id = "PlayPause";
   PlayPause(buttonPlayPause, video);
+
   var buttonMute = document.createElement("button");
   buttonMute.className = "Mute";
-  //  var buttonStop = document.createElement("button");
-  //  buttonStop.className = "Stop";
+  Mute(buttonMute, video);
+
   var buttonBack = document.createElement("button");
   buttonBack.className = "Back";
+  Back(buttonBack, video);
+
   var buttonForward = document.createElement("button");
   buttonForward.className = "Forward";
+  Forward(buttonForward, video);
+
   var buttonFullscreen = document.createElement("button");
   buttonFullscreen.className = "Fullscreen";
   var buttonTilBaka = document.createElement("button");
@@ -62,45 +72,54 @@ function myFunction(videoID) {
   divelement.appendChild(buttonTilBaka);
   a.appendChild(video);
   a.appendChild(divelement);
+  body.appendChild(videotitle);
   body.appendChild(a);
 
-  //  x.appendChild(divelement);
+  //  x.appendChild(divelement);;
 }
 //showButton();
 function PlayPause(clicky, video) {
   clicky.addEventListener("click", function() {
     //  document.getElementById("PlayPause").addEventListener("click", PlayPause(){
     if (video.paused) {
-      //    button.title = "pause";
-      //    button.innerHTML = "pause";
-      //  button.className = "pause";
       video.play();
+      buttonPlayPause.style.backround = url("./img/play.svg");
     } else {
-      //  button.title = "play";
-      //  button.innerHTML = "play";
-      //  btn.className = "play";
       video.pause();
+      buttonPlayPause.style.backround = "url(/img/pause.svg)";
     }
   });
 }
-function changeButtonType(button, value) {
-  button.title = value;
-  button.innerHTML = value;
-  button.className = value;
+
+function Mute(clicky, video) {
+  clicky.addEventListener("click", function() {
+    if (video.muted === false) {
+      //  changeButtonType(button, "mute");
+      video.muted = true;
+    } else {
+      video.muted = false;
+    }
+  });
 }
-function stopPlayer() {
-  var buttonStop = querySelector("Stop");
-  mediaPlayer.pause();
-  mediaPlayer.currentTime = 0;
-}
-function mute() {
-  var buttonMute = querySelector("Mute");
-  if (mediaPlayer.muted) {
-    changeButtonType(button, "mute");
-    mediaPlayer.muted = false;
-  } else {
-    changeButtonType(button, "unmute");
-    mediaPlayer.muted = true;
+/*function setTime(tValue){
+  try{
+    if (tValue == 0) {
+      video.currentTime+=tValue;
+    }
+    else{
+      video.currentTime +=tValue;
+    }
   }
+}*/
+function Back(clicky, video) {
+  clicky.addEventListener("click", function() {
+    video.currentTime = video.currentTime - 3;
+  });
 }
+function Forward(clicky, video) {
+  clicky.addEventListener("click", function() {
+    video.currentTime = video.currentTime + 3;
+  });
+}
+
 //  request.send
