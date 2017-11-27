@@ -52,13 +52,16 @@ function myFunction(videoID) {
   buttonForward.className = "Forward";
   var buttonFullscreen = document.createElement("button");
   buttonFullscreen.className = "Fullscreen";
+  var buttonTilBaka = document.createElement("button");
+  buttonTilBaka.className = "TilBaka";
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
-  //  divelement.appendChild(buttonStop);
+  //
   divelement.appendChild(buttonBack);
   divelement.appendChild(buttonForward);
   divelement.appendChild(buttonFullscreen);
+  divelement.appendChild(buttonTilBaka);
   a.appendChild(video);
   a.appendChild(divelement);
   body.appendChild(a);
@@ -75,7 +78,6 @@ function PlayPause(clicky, video) {
       //  button.className = "pause";
       video.play();
     } else {
-
       //  button.title = "play";
       //  button.innerHTML = "play";
       //  btn.className = "play";

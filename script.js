@@ -50,13 +50,16 @@ function myFunction(videoID) {
   buttonForward.className = "Forward";
   var buttonFullscreen = document.createElement("button");
   buttonFullscreen.className = "Fullscreen";
+  var buttonTilBaka = document.createElement("button");
+  buttonTilBaka.className = "TilBaka";
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
-  //  divelement.appendChild(buttonStop);
+  //
   divelement.appendChild(buttonBack);
   divelement.appendChild(buttonForward);
   divelement.appendChild(buttonFullscreen);
+  divelement.appendChild(buttonTilBaka);
   a.appendChild(video);
   a.appendChild(divelement);
   body.appendChild(a);
@@ -66,20 +69,19 @@ function myFunction(videoID) {
 //showButton();
 function PlayPause(clicky, video) {
   clicky.addEventListener("click", function() {
-      //  document.getElementById("PlayPause").addEventListener("click", PlayPause(){
-      if (video.paused) {
+    //  document.getElementById("PlayPause").addEventListener("click", PlayPause(){
+    if (video.paused) {
       //    button.title = "pause";
       //    button.innerHTML = "pause";
       //  button.className = "pause";
       video.play();
     } else {
-
       //  button.title = "play";
       //  button.innerHTML = "play";
       //  btn.className = "play";
-        video.pause();
-      }
-    });
+      video.pause();
+    }
+  });
 }
 function changeButtonType(button, value) {
   button.title = value;
