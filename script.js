@@ -106,8 +106,6 @@ function showVideoList(data) {
     img.setAttribute("src",data.videos[videoID].poster);
     img.setAttribute("width","25%");
 //    img.setAttribute("height","25%");
-//    makeLink(img, poster, videoID);
-//    makeLink(img, div4, videoID);
   }
 
 // ALL THE PRETTY LINKIES
@@ -157,7 +155,6 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
   img.setAttribute("src",data.videos[videoID].poster);
   img.setAttribute("width","25%");
   img.setAttribute("height","25%");
-  makeLink(img, div4, videoID);
 }
 */
 
@@ -168,7 +165,6 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
     var videoTitle = document.createTextNode(data.videos[videoID].title);
     titdiv.appendChild(p);
     p.appendChild(videoTitle);
-//    makeLink(p, cat, videoID);
   }
 
   function showCreated(data, videoID) { // Sýnir aldur hvers myndbands þar sem það birtist
@@ -186,7 +182,6 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
       }
       daysAgo.appendChild(daysAgoText);
       crediv.appendChild(daysAgo);
-//      makeLink(daysAgo, document.querySelector(".cat__" + i), videoID);
     }
     else if (days < 30) {
       var weeksAgo = document.createElement("p");
@@ -198,7 +193,6 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
       }
       weeksAgo.appendChild(weeksAgoText);
       crediv.appendChild(weeksAgo);
-//      makeLink(weeksAgo, document.querySelector(".cat__" + i), videoID);
     }
     else if (days < 365) {
       var monthsAgo = document.createElement("p");
@@ -210,7 +204,6 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
       }
       monthsAgo.appendChild(monthsAgoText);
       crediv.appendChild(monthsAgo);
-//      makeLink(monthsAgo, document.querySelector(".cat__" + i), videoID);
     }
     else {
       var yearsAgo = document.createElement("p");
@@ -222,7 +215,6 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
       }
       yearsAgo.appendChild(yearsAgoText);
       crediv.appendChild(yearsAgo);
-//      makeLink(yearsAgo, document.querySelector(".cat__" + i), videoID);
     }
   }
 
@@ -265,18 +257,5 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
     }
     durdiv.appendChild(p);
     p.appendChild(videoLength);
-//    makeLink(p, cat, videoID);
   }
-}
-
-function makeLink(child, parent, videoID) {
-  var link = document.createElement("a");
-  var videoID = videoID + 1;
-  link.setAttribute("href", "https://hi.is/" + videoID); // set querystring to take value of videoID
-/*  link.setAttribute("method", "GET"); // set querystring to take value of videoID
-  link.setAttribute("action", ""); // set querystring to take value of videoID
-  link.appendChild(child);
-  parent.appendChild(link);
-  console.log(videoID);*/
-}
 }
