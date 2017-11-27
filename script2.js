@@ -61,7 +61,7 @@ function myFunction(data, videoId) {
 
   var buttonFullscreen = document.createElement("button");
   buttonFullscreen.className = "Fullscreen";
-  //  Fullscreen(buttonFullscreen, video);
+  FullScreen(buttonFullscreen, video);
 
   var buttonTilBaka = document.createElement("button");
   buttonTilBaka.className = "TilBaka";
@@ -129,8 +129,14 @@ function Forward(clicky, video) {
   });
 }
 
-function FullScreeen(clicky, video) {
-  clicky.addEventListener("click", function() {});
+function FullScreen(clicky, video) {
+  video.webkitRequestFullscreen()
+  clicky.addEventListener("click", this.fullS.bind(video));
 }
+function fullS() {
+  console.log(this)
+  this.webkitRequestFullscreen()
+}
+
 
 //  request.send
