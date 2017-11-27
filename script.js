@@ -40,6 +40,11 @@ function showVideoList(data) {
       div2.appendChild(div3);
       div3.appendChild(h2);
       h2.appendChild(text);
+
+      var div4 = document.createElement("div");
+      div2.appendChild(div4);
+      div4.setAttribute("class","videoContainer__" + i)
+
       showVideoData(data, i);
   }
 
@@ -60,7 +65,7 @@ function showDataDivs(videoID) {
 
   var div3 = document.createElement("div");
   div3.setAttribute("class", "vid__" + (videoID+1));
-  div2.appendChild(div3);
+  div4.appendChild(div3);
 
   var a = document.createElement("a");
   a.setAttribute("href","video.html?id=" + (videoID+1));
