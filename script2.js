@@ -61,17 +61,23 @@ function myFunction(data, videoId) {
 
   var buttonFullscreen = document.createElement("button");
   buttonFullscreen.className = "Fullscreen";
+  //  Fullscreen(buttonFullscreen, video);
+
   var buttonTilBaka = document.createElement("button");
   buttonTilBaka.className = "TilBaka";
   buttonTilBaka.innerHTML = "Til baka";
+  var linkIndex = document.createElement("a");
+  linkIndex.setAttribute("href", "index.html");
+  //linkIndex.appendChild(Tilbaka);
+  //a.appendChild(linkIndex);
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
-  //
   divelement.appendChild(buttonBack);
   divelement.appendChild(buttonForward);
   divelement.appendChild(buttonFullscreen);
   div.appendChild(buttonTilBaka);
+
   a.appendChild(video);
   a.appendChild(divelement);
   a.appendChild(div);
@@ -83,13 +89,16 @@ function myFunction(data, videoId) {
 //showButton();
 function PlayPause(clicky, video) {
   clicky.addEventListener("click", function() {
-    //  document.getElementById("PlayPause").addEventListener("click", PlayPause(){
     if (video.paused) {
       video.play();
-      buttonPlayPause.style.backround = url("./img/play.svg");
+      document.querySelector(".PlayPause").style.background =
+        "url('./img/pause.svg')";
+      document.querySelector(".PlayPause").style.backgroundSize = "contain";
     } else {
       video.pause();
-      buttonPlayPause.style.backround = "url(/img/pause.svg)";
+      document.querySelector(".PlayPause").style.background =
+        "url('./img/play.svg')";
+      document.querySelector(".PlayPause").style.backgroundSize = "contain";
     }
   });
 }
@@ -97,10 +106,15 @@ function PlayPause(clicky, video) {
 function Mute(clicky, video) {
   clicky.addEventListener("click", function() {
     if (video.muted === false) {
-      //  changeButtonType(button, "mute");
       video.muted = true;
+      document.querySelector(".Mute").style.background =
+        "url('./img/unmute.svg')";
+      document.querySelector(".Mute").style.backgroundSize = "contain";
     } else {
       video.muted = false;
+      document.querySelector(".Mute").style.background =
+        "url('./img/mute.svg')";
+      document.querySelector(".Mute").style.backgroundSize = "contain";
     }
   });
 }
@@ -114,15 +128,9 @@ function Forward(clicky, video) {
     video.currentTime = video.currentTime + 3;
   });
 }
-function Mute(clicky, video) {
-  clicky.addEventListener("click", function() {
-    if (video.muted === false) {
-      //  changeButtonType(button, "mute");
-      video.muted = true;
-    } else {
-      video.muted = false;
-    }
-  });
+
+function FullScreeen(clicky, video) {
+  clicky.addEventListener("click", function() {});
 }
 
 //  request.send
