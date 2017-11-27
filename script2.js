@@ -65,7 +65,6 @@ function myFunction(data, videoId) {
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
-  //
   divelement.appendChild(buttonBack);
   divelement.appendChild(buttonForward);
   divelement.appendChild(buttonFullscreen);

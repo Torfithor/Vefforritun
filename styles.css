@@ -52,4 +52,7 @@ button.Forward {
   background: url("./img/next.svg") no-repeat top left;
   background-size: contain;
 }
+button.Tilbaka {
+color: inherit;
+}
 */
