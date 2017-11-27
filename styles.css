@@ -17,32 +17,50 @@ body {
   margin: 0;
 }
 
+.img {
+  width: 30%;
+}
+
+h2 {
+  width: 100%;
+  padding: 0 10px;
+  font-size: 2rem;
+}
+
 .p {
-  display: block;
-  overflow: hidden;
-  font-size: 1.2em;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  padding: 0 5px;
   font-weight: bold;
   color: #fff;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); }
 }
 
 .cat__0 {
-  margin-left: 10px;
   display: flex;
-  flex-flow: wrap;
-  border-bottom: 1px solid;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      margin-right: -10px;
+      margin-bottom: 20px;
+      margin-left: -10px;
 }
 
 .cat__1 {
   display: flex;
-  flex-flow: wrap;
-  border-bottom: 1px solid;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      margin-right: -10px;
+      margin-bottom: 20px;
+      margin-left: -10px;
 }
 
 .cat__2 {
   display: flex;
-  flex-flow: wrap;
-  border-bottom: 1px solid;
-}
+      flex-wrap: wrap;
+      margin-top: 20px;
+      margin-right: -10px;
+      margin-bottom: 20px;
+      margin-left: -10px;
+    }
