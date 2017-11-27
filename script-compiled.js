@@ -36,8 +36,11 @@ function showVideoList(data) {
       var text = document.createTextNode(data.categories[i].title);
       div.appendChild(div2);
       div2.setAttribute("class", "cat__" + i);
+      var div3 = document.createElement("div");
+
       var h2 = document.createElement("h2");
-      div2.appendChild(h2);
+      div2.appendChild(div3);
+      div3.appendChild(h2);
       h2.appendChild(text);
       showVideoData(data, i);
     }
@@ -56,34 +59,37 @@ function showVideoList(data) {
     }
 
     function showDataDivs(videoID) {
+
       var div3 = document.createElement("div");
       div3.setAttribute("class", "vid__" + (videoID + 1));
       div2.appendChild(div3);
 
       var a = document.createElement("a");
       a.setAttribute("href", "video.html?id=" + (videoID + 1));
+      a.setAttribute("id", "vid__" + i + "__" + (videoID + 1));
       div3.appendChild(a);
 
-      var div4 = document.createElement("div");
-      a.appendChild(div4);
-      div4.setAttribute("id", "poster__" + i + "__" + (videoID + 1));
-
-      var div5 = document.createElement("div");
-      a.appendChild(div5);
-      div5.setAttribute("id", "title__" + i + "__" + (videoID + 1));
-
-      var div6 = document.createElement("div");
-      a.appendChild(div6);
-      div6.setAttribute("id", "created__" + i + "__" + (videoID + 1));
-
-      var div7 = document.createElement("div");
-      a.appendChild(div7);
-      div7.setAttribute("id", "duration__" + i + "__" + (videoID + 1));
+      /*  var div4 = document.createElement("div");
+        a.appendChild(div4);
+        div4.setAttribute("id", "poster__" + i + "__" + (videoID + 1));
+      
+        var div5 = document.createElement("div");
+        a.appendChild(div5);
+        div5.setAttribute("id", "title__" + i + "__" + (videoID + 1));
+      
+        var div6 = document.createElement("div");
+        a.appendChild(div6);
+        div6.setAttribute("id", "created__" + i + "__" + (videoID + 1));
+      
+        var div7 = document.createElement("div");
+        a.appendChild(div7);
+        div7.setAttribute("id", "duration__" + i + "__" + (videoID + 1));
+      */
     }
 
     function showPoster(data, videoID, i) {
       // Sýnir poster fyrir hvert myndband í category
-      var imgdiv = document.getElementById("poster__" + i + "__" + (videoID + 1));
+      var imgdiv = document.getElementById("vid__" + i + "__" + (videoID + 1));
       var img = document.createElement("img");
       imgdiv.appendChild(img);
       img.setAttribute("src", data.videos[videoID].poster);
@@ -91,7 +97,7 @@ function showVideoList(data) {
 
     function showTitle(data, videoID) {
       // Sýnir titil hvers myndbands þar sem það birtist
-      var titdiv = document.getElementById("title__" + i + "__" + (videoID + 1));
+      var titdiv = document.getElementById("vid__" + i + "__" + (videoID + 1));
       var p = document.createElement("p");
       var videoTitle = document.createTextNode(data.videos[videoID].title);
       titdiv.appendChild(p);
@@ -103,7 +109,7 @@ function showVideoList(data) {
       var now = Date.now();
       var difference = now - data.videos[videoID].created;
       var days = difference / 1000 / 3600 / 24;
-      var crediv = document.getElementById("created__" + i + "__" + (videoID + 1));
+      var crediv = document.getElementById("vid__" + i + "__" + (videoID + 1));
       if (days < 7) {
         var daysAgo = document.createElement("p");
         if (days == 1) {
@@ -145,7 +151,7 @@ function showVideoList(data) {
 
     function showDuration(data, videoID) {
       // Sýnir lengd hvers myndbands þar sem það birtist
-      var durdiv = document.getElementById("duration__" + i + "__" + (videoID + 1));
+      var durdiv = document.getElementById("vid__" + i + "__" + (videoID + 1));
       var p = document.createElement("p");
       var t = data.videos[videoID].duration;
       if (t < 10) {
