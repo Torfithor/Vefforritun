@@ -9,6 +9,16 @@ function fetchJson() {
   request.open('GET', './videos.json', true);
   request.onload = function() {
     var data = JSON.parse(request.response);
+/*    if(window.location.search("id") > 0) {
+      myFunction((videoID+1)); //setja querystring í input
+    }
+    else {
+      showVideoList();
+    }
+/*    if(window.location.search("video") == true) {
+      myFunction();
+    }
+    */
     showVideoList(data);
   };
   request.send();
@@ -54,6 +64,7 @@ function showVideoList(data) {
       div3.setAttribute("class", "vid__" + (videoID+1));
       div2.appendChild(div3);
       var a = document.createElement("a");
+      a.setAttribute("href","video.html?id=" + (videoID+1))
       div3.appendChild(a);
 
 //      console.log(videoID);
@@ -258,4 +269,5 @@ function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í c
     durdiv.appendChild(p);
     p.appendChild(videoLength);
   }
+}
 }
