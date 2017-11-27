@@ -54,9 +54,23 @@ function showDataDivs(videoID) {
   div3.setAttribute("class", "vid__" + (videoID+1));
   div2.appendChild(div3);
 
+<<<<<<< HEAD
   var a = document.createElement("a");
   a.setAttribute("href","video.html?id=" + (videoID+1));
   div3.appendChild(a);
+=======
+  function showPoster(data, videoID, i) {  // Sýnir poster fyrir hvert myndband í category
+//  þessa div4 skilgreiningu frekar?
+//    var div4 = document.querySelector(".vid__" + (videoID+1));
+//    var div4 = document.createElement("div");
+    var imgdiv = document.getElementById("poster__" + i + "__" + (videoID + 1));
+//    div2.appendChild(div4);
+    var img = document.createElement("img");
+    imgdiv.appendChild(img);
+//    div4.appendChild(img);
+    img.setAttribute("src",data.videos[videoID].poster);
+  }
+>>>>>>> ff89fbffc81fb0aad168e91c7113cfc2ce035b44
 
   var div4 = document.createElement("div");
   a.appendChild(div4);
@@ -74,6 +88,17 @@ function showDataDivs(videoID) {
   a.appendChild(div7);
   div7.setAttribute("id", "duration__" + i + "__" + (videoID + 1));
 
+<<<<<<< HEAD
+=======
+function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í category
+//  þessa div4 skilgreiningu frekar?
+//      var div4 = document.querySelector(".vid__" + (videoID+1));
+  var div4 = document.createElement("div");
+  div2.appendChild(div4);
+  var img = document.createElement("img");
+  //div4.appendChild(img);
+  img.setAttribute("src",data.videos[videoID].poster);
+>>>>>>> ff89fbffc81fb0aad168e91c7113cfc2ce035b44
 }
 
   function showPoster(data, videoID, i) {  // Sýnir poster fyrir hvert myndband í category
