@@ -51,16 +51,33 @@ function showVideoList(data) {
         var div3 = document.createElement("div");
         div3.setAttribute("class", "vid__" + (videoID + 1));
         div2.appendChild(div3);
-        //var a = document.createElement("a");
-        //div2.appendChild(a);
-        showAll(data, videoID);
-        //a.appendChild(div3);
-        //div3.appendChild(videoData);
-        //a.setAttribute("href","http://www.hi.is");
-        /*        showPoster(data, videoID); // kalla á föllin með div3.appendChild(showXYZ)?
-              showTitle(data, videoID);
-              showCreated(data, videoID);
-              showDuration(data, videoID);*/
+        var a = document.createElement("a");
+        div3.appendChild(a);
+
+        var div4 = document.createElement("div");
+        a.appendChild(div4);
+        div4.setAttribute("id", "poster");
+        var div5 = document.createElement("div");
+        a.appendChild(div5);
+        div5.setAttribute("id", "title");
+        var div6 = document.createElement("div");
+        a.appendChild(div6);
+        div6.setAttribute("id", "created");
+        var div7 = document.createElement("div");
+        a.appendChild(div7);
+        div7.setAttribute("id", "duration");
+        var poster = document.getElementById("poster");
+        showPoster(data, videoID, poster); // kalla á föllin með div3.appendChild(showXYZ)?
+        document.getElementById("title");
+        showTitle(data, videoID);
+        document.getElementById("created");
+        showCreated(data, videoID);
+        document.getElementById("duration");
+        showDuration(data, videoID);
+
+        //      div3.appendChild(videoData);
+        a.setAttribute("href", "http://www.hi.is/" + videoID);
+        /*    showAll(data, videoID);*/
         j++;
         //        document.crea
       }
@@ -73,18 +90,19 @@ function showVideoList(data) {
       showDuration(data, videoID);
     }
 
-    function showPoster(data, videoID) {
+    function showPoster(data, videoID, poster) {
       // Sýnir poster fyrir hvert myndband í category
       //  þessa div4 skilgreiningu frekar?
-      //      var div4 = document.querySelector(".vid__" + (videoID+1));
-      var div4 = document.createElement("div");
-      div2.appendChild(div4);
+      var div4 = document.querySelector(".vid__" + (videoID + 1));
+      //    var div4 = document.createElement("div");
+      //    div2.appendChild(div4);
       var img = document.createElement("img");
+      poster.appendChild(img);
       //div4.appendChild(img);
       img.setAttribute("src", data.videos[videoID].poster);
       img.setAttribute("width", "25%");
       img.setAttribute("height", "25%");
-      makeLink(img, div4, videoID);
+      //    makeLink(img, poster, videoID);
     }
 
     function showTitle(data, videoID) {
@@ -183,9 +201,11 @@ function showVideoList(data) {
     var link = document.createElement("a");
     var videoID = videoID + 1;
     link.setAttribute("href", "https://hi.is/" + videoID); // set querystring to take value of videoID
-    link.appendChild(child);
-    parent.appendChild(link);
-    console.log(videoID);
+    /*  link.setAttribute("method", "GET"); // set querystring to take value of videoID
+      link.setAttribute("action", ""); // set querystring to take value of videoID
+      link.appendChild(child);
+      parent.appendChild(link);
+      console.log(videoID);*/
   }
 }
 
