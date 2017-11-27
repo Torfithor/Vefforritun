@@ -32,9 +32,9 @@ button.PlayPause {
   background: url("./img/play.svg") no-repeat top left;
   background-size: contain;
 }
-button.Forward {
-  order: 2;
-  background: url("./img/next.svg") no-repeat top left;
+button.Stop {
+order: 2;
+  background: url("./img/pause.svg") no-repeat top left;
   background-size: contain;
 }
 button.Mute {
@@ -42,15 +42,14 @@ button.Mute {
   background: url("./img/mute.svg") no-repeat top left;
   background-size: contain;
 }
-button.Stop {
-order: 4;
-  background: url("./img/pause.svg") no-repeat top left;
-  background-size: contain;
-}
-
-/* Fullscreen??
-fullscrButton {
+button.Fullscreen {
+  order: 4;
   display: inline-block;
   background: url("./img/fullscreen.svg") no-repeat top left;
   background-size: contain; }
+button.Forward {
+  order: 5;
+  background: url("./img/next.svg") no-repeat top left;
+  background-size: contain;
+}
 */
