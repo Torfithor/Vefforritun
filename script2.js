@@ -37,6 +37,7 @@ function myFunction(data, videoId) {
   videotitle.appendChild(text);
   var body = document.querySelector("body");
   var a = document.createElement("a");
+  var div = document.createElement("div");
   //  video.id= "video";
   var video = document.createElement("VIDEO");
   var divelement = document.createElement("div");
@@ -65,12 +66,14 @@ function myFunction(data, videoId) {
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
+  //
   divelement.appendChild(buttonBack);
   divelement.appendChild(buttonForward);
   divelement.appendChild(buttonFullscreen);
-  divelement.appendChild(buttonTilBaka);
+  div.appendChild(buttonTilBaka);
   a.appendChild(video);
   a.appendChild(divelement);
+  a.appendChild(div);
   body.appendChild(videotitle);
   body.appendChild(a);
 
@@ -100,16 +103,6 @@ function Mute(clicky, video) {
     }
   });
 }
-/*function setTime(tValue){
-  try{
-    if (tValue == 0) {
-      video.currentTime+=tValue;
-    }
-    else{
-      video.currentTime +=tValue;
-    }
-  }
-}*/
 function Back(clicky, video) {
   clicky.addEventListener("click", function() {
     video.currentTime = video.currentTime - 3;
@@ -118,6 +111,16 @@ function Back(clicky, video) {
 function Forward(clicky, video) {
   clicky.addEventListener("click", function() {
     video.currentTime = video.currentTime + 3;
+  });
+}
+function Mute(clicky, video) {
+  clicky.addEventListener("click", function() {
+    if (video.muted === false) {
+      //  changeButtonType(button, "mute");
+      video.muted = true;
+    } else {
+      video.muted = false;
+    }
   });
 }
 
