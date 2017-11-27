@@ -8,21 +8,9 @@ function fetchJson() {
   request.open("GET", "./videos.json", true);
   request.onload = function() {
     var data = JSON.parse(request.response);
-    time(data, 0);
     myFunction(data.videos[1].video);
   };
   request.send();
-}
-
-function time(video, n) {
-  var now = Date.now();
-  var difference = now - video.videos[n].created;
-  var days = difference / 1000 / 3600 / 24;
-  if (days < 7) {
-    return "Fyrir " + days + " dögum síðan";
-  } else {
-    return "Fyrir " + Math.round(days / 7) + " víkum síðan";
-  }
 }
 
 /*function myFunction(videolink) {
@@ -51,6 +39,7 @@ function myFunction(videoID) {
   var buttonPlayPause = document.createElement("button");
   buttonPlayPause.className = "PlayPause";
   buttonPlayPause.id = "PlayPause";
+  PlayPause(buttonPlayPause, video);
   var buttonMute = document.createElement("button");
   buttonMute.className = "Mute";
   //  var buttonStop = document.createElement("button");
@@ -75,29 +64,23 @@ function myFunction(videoID) {
   //  x.appendChild(divelement);
 }
 //showButton();
-
-//var video = document.querySelector
-function playVideo() {
-  video.play();
-}
-document.addEventListener("DOMContentLoaded", function() {
-  document
-    .getElementById("PlayPause")
-    .addEventListener("click", function PlayPause() {
-      var buttonPlayPause = querySelector("PlayPause");
+function PlayPause(clicky, video) {
+  clicky.addEventListener("click", function() {
       //  document.getElementById("PlayPause").addEventListener("click", PlayPause(){
-      //if (video.paus || video.ended) {
+      if (video.paused) {
       //    button.title = "pause";
       //    button.innerHTML = "pause";
       //  button.className = "pause";
       video.play();
+    } else {
 
       //  button.title = "play";
       //  button.innerHTML = "play";
       //  btn.className = "play";
-      //  video.pause();
+        video.pause();
+      }
     });
-});
+}
 function changeButtonType(button, value) {
   button.title = value;
   button.innerHTML = value;
