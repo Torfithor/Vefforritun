@@ -100,9 +100,13 @@ function showVideoList(data) {
       poster.appendChild(img);
       //div4.appendChild(img);
       img.setAttribute("src", data.videos[videoID].poster);
+<<<<<<< HEAD
       img.setAttribute("width", "25%");
       img.setAttribute("height", "25%");
       //    makeLink(img, poster, videoID);
+=======
+      makeLink(img, div4, videoID);
+>>>>>>> 90b571a57a70331cecf1636c51bf72b38f8fa3de
     }
 
     function showTitle(data, videoID) {
