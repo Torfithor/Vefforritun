@@ -10,16 +10,6 @@ function fetchJson() {
   request.open('GET', './videos.json', true);
   request.onload = function () {
     var data = JSON.parse(request.response);
-    /*    if(window.location.search("id") > 0) {
-          myFunction((videoID+1)); //setja querystring í input
-        }
-        else {
-          showVideoList();
-        }
-    /*    if(window.location.search("video") == true) {
-          myFunction();
-        }
-        */
     showVideoList(data);
   };
   request.send();
@@ -48,129 +38,52 @@ function showVideoList(data) {
       showVideoData(data, i);
     }
 
-    /* TODO
-        - querystring fyrir hvert videoID í showVideoData fall
-        - setja div3 í showVideoData fall
-        - setja a tag utan um showXYZ í showVideoData falli svo querystring link nái yfir poster, titil og duration
-    */
-
-    //   ALL THE PRETTY LINKIES
-    //   HERE BELOW
-
-
     function showVideoData(data, i) {
       var j = 0;
       while (j < data.categories[i].videos.length) {
         var videoID = data.categories[i].videos[j] - 1;
-        var div3 = document.createElement("div");
-        div3.setAttribute("class", "vid__" + (videoID + 1));
-        div2.appendChild(div3);
-        var a = document.createElement("a");
-        a.setAttribute("href", "video.html?id=" + (videoID + 1));
-        div3.appendChild(a);
-
-        //      console.log(videoID);
-
-        var div4 = document.createElement("div");
-        a.appendChild(div4);
-        div4.setAttribute("id", "poster__" + i + "__" + (videoID + 1));
-        var div5 = document.createElement("div");
-        a.appendChild(div5);
-        div5.setAttribute("id", "title__" + i + "__" + (videoID + 1));
-        var div6 = document.createElement("div");
-        a.appendChild(div6);
-        div6.setAttribute("id", "created__" + i + "__" + (videoID + 1));
-        var div7 = document.createElement("div");
-        a.appendChild(div7);
-        div7.setAttribute("id", "duration__" + i + "__" + (videoID + 1));
-        //      var poster = document.getElementById("poster__" + (videoID + 1));
-        showPoster(data, videoID, i); // kalla á föllin með div3.appendChild(showXYZ)?
-        document.getElementById("title");
+        showDataDivs(videoID);
+        showPoster(data, videoID, i);
         showTitle(data, videoID, i);
-        document.getElementById("created");
         showCreated(data, videoID, i);
-        document.getElementById("duration");
         showDuration(data, videoID, i);
-
-        //      div3.appendChild(videoData);
-        //      a.setAttribute("href","http://www.hi.is/" + videoID);
-        //    showAll(data, videoID);
         j++;
-        //        document.crea
       }
     }
 
-    function showAll(data, videoID) {
-      showPoster(data, videoID);
-      showTitle(data, videoID);
-      showCreated(data, videoID);
-      showDuration(data, videoID);
+    function showDataDivs(videoID) {
+      var div3 = document.createElement("div");
+      div3.setAttribute("class", "vid__" + (videoID + 1));
+      div2.appendChild(div3);
+
+      var a = document.createElement("a");
+      a.setAttribute("href", "video.html?id=" + (videoID + 1));
+      div3.appendChild(a);
+
+      var div4 = document.createElement("div");
+      a.appendChild(div4);
+      div4.setAttribute("id", "poster__" + i + "__" + (videoID + 1));
+
+      var div5 = document.createElement("div");
+      a.appendChild(div5);
+      div5.setAttribute("id", "title__" + i + "__" + (videoID + 1));
+
+      var div6 = document.createElement("div");
+      a.appendChild(div6);
+      div6.setAttribute("id", "created__" + i + "__" + (videoID + 1));
+
+      var div7 = document.createElement("div");
+      a.appendChild(div7);
+      div7.setAttribute("id", "duration__" + i + "__" + (videoID + 1));
     }
 
     function showPoster(data, videoID, i) {
       // Sýnir poster fyrir hvert myndband í category
-      //  þessa div4 skilgreiningu frekar?
-      //    var div4 = document.querySelector(".vid__" + (videoID+1));
-      //    var div4 = document.createElement("div");
       var imgdiv = document.getElementById("poster__" + i + "__" + (videoID + 1));
-      //    div2.appendChild(div4);
       var img = document.createElement("img");
       imgdiv.appendChild(img);
-      //    div4.appendChild(img);
       img.setAttribute("src", data.videos[videoID].poster);
-      img.setAttribute("width", "25%");
-      //    img.setAttribute("height","25%");
     }
-
-    // ALL THE PRETTY LINKIES
-    // HERE ABOVE
-
-
-    // ALL THE OLD FUNCTIONS
-    // HERE BELOW
-
-    /*
-    function showVideoData(data, i) {
-      var j = 0;
-      while (j<data.categories[i].videos.length) {
-        var videoID = data.categories[i].videos[j] - 1;
-        var div3 = document.createElement("div");
-        div3.setAttribute("class", "vid__" + (videoID+1));
-        div2.appendChild(div3);
-        //var a = document.createElement("a");
-        //div2.appendChild(a);
-        showAll(data, videoID);
-        //a.appendChild(div3);
-        //div3.appendChild(videoData);
-        //a.setAttribute("href","http://www.hi.is");
-    //    showPoster(data, videoID); // kalla á föllin með div3.appendChild(showXYZ)?
-    //    showTitle(data, videoID);
-    //    showCreated(data, videoID);
-    //    showDuration(data, videoID);
-        j++;
-    //        document.crea
-      }
-    }
-    
-    function showAll(data, videoID) {
-      showPoster(data, videoID);
-      showTitle(data, videoID);
-      showCreated(data, videoID);
-      showDuration(data, videoID);
-    }
-    
-    function showPoster(data, videoID) {  // Sýnir poster fyrir hvert myndband í category
-    //  þessa div4 skilgreiningu frekar?
-    //      var div4 = document.querySelector(".vid__" + (videoID+1));
-      var div4 = document.createElement("div");
-      div2.appendChild(div4);
-      var img = document.createElement("img");
-      //div4.appendChild(img);
-      img.setAttribute("src",data.videos[videoID].poster);
-      img.setAttribute("width","25%");
-      img.setAttribute("height","25%");
-    }
-    */
 
     function showTitle(data, videoID) {
       // Sýnir titil hvers myndbands þar sem það birtist
