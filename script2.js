@@ -5,11 +5,13 @@ function PlayPause(clicky, video) {
       document.querySelector(".PlayPause").style.background =
         "url('./img/pause.svg')";
       document.querySelector(".PlayPause").style.backgroundSize = "contain";
+      hidePause();
     } else {
       video.pause();
       document.querySelector(".PlayPause").style.background =
         "url('./img/play.svg')";
       document.querySelector(".PlayPause").style.backgroundSize = "contain";
+      showPause();
     }
   });
 }
