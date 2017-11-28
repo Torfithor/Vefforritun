@@ -15,7 +15,15 @@ body {
       margin-bottom: 20px;
       margin-left: 10px;
 }
+a{
+  color: #fff;
+  text-decoration: none;
 
+}
+.DIV{
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .cat__1 {
       margin-top: 20px;
       margin-right: 10px;
@@ -52,8 +60,9 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-.img {
-  width: 100%;
+img {
+  width: 30em;
+  padding: 1em;
 }
 
 .poster{
