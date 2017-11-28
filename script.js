@@ -1,8 +1,4 @@
-
-// Sýnir myndbandalista
-// TODO: module utan um showVideoList
-
-function showVideoList(data) {
+function showVideoList(data) { // "Klasi" til að sýna myndbandalista
 
   const body = document.querySelector('body');
   const div = document.createElement('div');
@@ -13,17 +9,6 @@ function showVideoList(data) {
     let i = 0;
     while (i < data.categories.length) {
       const div2 = document.createElement('div');
-
-  var body = document.querySelector("body");
-  var div = document.createElement("div");
-  div.className = "DIV";
-  var catNo = data.categories.length;
-
-  showCategory(data);
-  function showCategory(data) { // Birtir allt fyrir hvert category á myndbandalista
-    for (var i=0;i<catNo;i++) {
-      var div2 = document.createElement("div");
-
       body.appendChild(div);
       const text = document.createTextNode(data.categories[i].title);
       div.appendChild(div2);
@@ -44,7 +29,7 @@ function showVideoList(data) {
       i += 1;
     }
 
-    function showVideoData() {
+    function showVideoData() { //Kallar á föll sem sýna gögnin
       let j = 0;
       while (j < data.categories[i].videos.length) {
         const videoID = data.categories[i].videos[j] - 1;
@@ -57,7 +42,7 @@ function showVideoList(data) {
       }
     }
 
-    function showDataDivs(videoID) {
+    function showDataDivs(videoID) { // Býr til divs fyrir myndbönd
       const div3 = document.createElement('div');
       div3.setAttribute('class', `vid__${videoID + 1}`);
       div4.appendChild(div3);
@@ -151,7 +136,7 @@ function showVideoList(data) {
   }
 }
 
-function fetchJson() {
+function fetchJson() { // Nær í Json gögn
   const request = new XMLHttpRequest();
 
   request.open('GET', './videos.json', true);
