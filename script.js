@@ -3,6 +3,7 @@
 // TODO: module utan um showVideoList
 
 function showVideoList(data) {
+
   const body = document.querySelector('body');
   const div = document.createElement('div');
   div.className = 'DIV';
@@ -12,6 +13,17 @@ function showVideoList(data) {
     let i = 0;
     while (i < data.categories.length) {
       const div2 = document.createElement('div');
+
+  var body = document.querySelector("body");
+  var div = document.createElement("div");
+  div.className = "DIV";
+  var catNo = data.categories.length;
+
+  showCategory(data);
+  function showCategory(data) { // Birtir allt fyrir hvert category á myndbandalista
+    for (var i=0;i<catNo;i++) {
+      var div2 = document.createElement("div");
+
       body.appendChild(div);
       const text = document.createTextNode(data.categories[i].title);
       div.appendChild(div2);

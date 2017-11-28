@@ -1,0 +1,87 @@
+html {
+  box-sizing: border-box;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+img#pauseButton {
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  margin: auto;
+  background-size: contain;
+  background-position: center;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+h3 {
+  text-align: center;
+}
+
+video {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  width: 48px;
+  height: 48px;
+  margin: 10px;
+  border: transparent;
+}
+
+button.Back {
+  order: 0;
+  background: url("./img/back.svg") no-repeat top left;
+  background-size: contain;
+}
+
+button.PlayPause {
+  order: 1;
+  background: url("./img/play.svg") no-repeat top left;
+  background-size: contain;
+}
+
+button.Stop {
+  order: 2;
+  background: url("./img/pause.svg") no-repeat top left;
+  background-size: contain;
+}
+
+button.Mute {
+  order: 3;
+  background: url("./img/mute.svg") no-repeat top left;
+  background-size: contain;
+}
+
+button.Fullscreen {
+  order: 4;
+  display: inline-block;
+  background: url("./img/fullscreen.svg") no-repeat top left;
+  background-size: contain;
+}
+
+button.Forward {
+  order: 5;
+  background: url("./img/next.svg") no-repeat top left;
+  background-size: contain;
+}
