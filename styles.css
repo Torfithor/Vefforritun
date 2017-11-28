@@ -30,6 +30,7 @@ a{
 a {
   color: #fff;
   text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
 }
 h2 {
   display: flex;
@@ -66,6 +67,7 @@ img {
 .DIV{
   margin-left: 10%;
   margin-right: 10%;
+  font-family: Helvetica,Arial, sans-serif;;
 }
 
 .p {
