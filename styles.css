@@ -19,7 +19,6 @@ a{
       margin-right: 10px;
       margin-bottom: 20px;
       margin-left: 10px;
-      border-bottom: solid gray 2px;
 }
 
 .cat__2 {
@@ -27,7 +26,6 @@ a{
       margin-right: 10px;
       margin-bottom: 20px;
       margin-left: 10px;
-      border-top: solid gray 2px;
     }
 /*a {
 
@@ -84,9 +82,12 @@ img {
 }*/
 p{
   line-height: normal;
+
 }
 p:first-of-type{
   font-size: 1.4em;
+}
+p:last-of-type{
 }
 
 @media (max-width: 600px)  {
