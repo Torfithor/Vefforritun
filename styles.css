@@ -22,7 +22,7 @@ a{
 .DIV{
   margin-left: 10%;
   margin-right: 10%;
-  cursor: url(img/torfi.png), auto;
+  cursor: url(img/torfi.png);
 }
 
 .cat__0 {
