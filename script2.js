@@ -1,59 +1,124 @@
-document.addEventListener("DOMContentLoaded", function() {
-  fetchJson();
-});
+function PlayPause(clicky, video) {
+  clicky.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      document.querySelector('.PlayPause').style.background =
+        "url('./img/pause.svg')";
+      document.querySelector('.PlayPause').style.backgroundSize = 'contain';
+    } else {
+      video.pause();
+      document.querySelector('.PlayPause').style.background =
+        "url('./img/play.svg')";
+      document.querySelector('.PlayPause').style.backgroundSize = 'contain';
+    }
+  });
+}
 
-function fetchJson() {
-  var request = new XMLHttpRequest();
+function createPause(div) {
+  const pauseButton = document.createElement('IMG');
+  pauseButton.setAttribute('src', './img/play.svg');
+  pauseButton.setAttribute('id', 'pauseButton');
+  div.appendChild(pauseButton);
+}
 
-  request.open("GET", "./videos.json", true);
-  request.onload = function() {
-    var data = JSON.parse(request.response);
-    var x = location.search.substring(4);
-    myFunction(data, x);
-  };
-  request.send();
+function showPause() {
+  document.getElementById('pauseButton').style.visibility = 'visible';
+}
+
+function hidePause() {
+  document.getElementById('pauseButton').style.visibility = 'hidden';
+}
+
+function PlayPauseVideo(video) {
+  video.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      document.querySelector('.PlayPause').style.background =
+        "url('./img/pause.svg')";
+      document.querySelector('.PlayPause').style.backgroundSize = 'contain';
+      hidePause();
+    } else {
+      video.pause();
+      document.querySelector('.PlayPause').style.background =
+        "url('./img/play.svg')";
+      document.querySelector('.PlayPause').style.backgroundSize = 'contain';
+      showPause();
+    }
+  });
+}
+
+function Mute(clicky, video) {
+  clicky.addEventListener('click', () => {
+    if (video.muted === false) {
+      video.muted = true;
+      document.querySelector('.Mute').style.background =
+        "url('./img/unmute.svg')";
+      document.querySelector('.Mute').style.backgroundSize = 'contain';
+    } else {
+      video.muted = false;
+      document.querySelector('.Mute').style.background =
+        "url('./img/mute.svg')";
+      document.querySelector('.Mute').style.backgroundSize = 'contain';
+    }
+  });
+}
+function Back(clicky, video) {
+  clicky.addEventListener('click', () => {
+    video.currentTime -= 3;
+  });
+}
+function Forward(clicky, video) {
+  clicky.addEventListener('click', () => {
+    video.currentTime += 3;
+  });
+}
+
+function FullScreen(clicky, video) {
+  video.webkitRequestFullscreen();
+  clicky.addEventListener('click', this.fullS.bind(video));
+}
+function fullS() {
+  this.webkitRequestFullscreen();
 }
 
 function myFunction(data, videoId) {
-  var dataVideos = data.videos[videoId - 1].video;
+  const dataVideos = data.videos[videoId - 1].video;
 
-  var videotitle = document.createElement("h3");
-  var text = document.createTextNode(data.videos[videoId - 1].title);
+  const videotitle = document.createElement('h3');
+  const text = document.createTextNode(data.videos[videoId - 1].title);
   videotitle.appendChild(text);
-  var body = document.querySelector("body");
-  var a = document.createElement("a");
-  var div = document.createElement("div");
-  var video = document.createElement("VIDEO");
-  var divelement = document.createElement("div");
-  video.setAttribute("src", dataVideos);
+  const body = document.querySelector('body');
+  const a = document.createElement('a');
+  const div = document.createElement('div');
+  const video = document.createElement('VIDEO');
+  const divelement = document.createElement('div');
+  video.setAttribute('src', dataVideos);
 
-  var buttonPlayPause = document.createElement("button");
-  buttonPlayPause.className = "PlayPause";
+  const buttonPlayPause = document.createElement('button');
+  buttonPlayPause.className = 'PlayPause';
   PlayPause(buttonPlayPause, video);
   createPause(a);
-  PlayPauseVideo(video, a);
+  PlayPauseVideo(video);
 
-  var buttonMute = document.createElement("button");
-  buttonMute.className = "Mute";
+  const buttonMute = document.createElement('button');
+  buttonMute.className = 'Mute';
   Mute(buttonMute, video);
 
-  var buttonBack = document.createElement("button");
-  buttonBack.className = "Back";
+  const buttonBack = document.createElement('button');
+  buttonBack.className = 'Back';
   Back(buttonBack, video);
 
-  var buttonForward = document.createElement("button");
-  buttonForward.className = "Forward";
+  const buttonForward = document.createElement('button');
+  buttonForward.className = 'Forward';
   Forward(buttonForward, video);
 
-  var buttonFullscreen = document.createElement("button");
-  buttonFullscreen.className = "Fullscreen";
+  const buttonFullscreen = document.createElement('button');
+  buttonFullscreen.className = 'Fullscreen';
   FullScreen(buttonFullscreen, video);
 
-  //  var TilBaka = document.createElement("p");
-  //  TilBaka.className = "TilBaka";
-  var linkIndex = document.createElement("a");
-  linkIndex.innerHTML = "Til baka";
-  linkIndex.setAttribute("href", "index.html");
+  const linkIndex = document.createElement('a');
+  linkIndex.innerHTML = 'Til baka';
+  linkIndex.setAttribute('href', 'index.html');
 
   divelement.appendChild(buttonPlayPause);
   divelement.appendChild(buttonMute);
@@ -71,85 +136,22 @@ function myFunction(data, videoId) {
   hidePause();
 }
 
-function PlayPause(clicky, video) {
-  clicky.addEventListener("click", function() {
-    if (video.paused) {
-      video.play();
-      document.querySelector(".PlayPause").style.background =
-        "url('./img/pause.svg')";
-      document.querySelector(".PlayPause").style.backgroundSize = "contain";
+function fetchJson() {
+  const request = new XMLHttpRequest();
+
+  request.open('GET', './videos.json', true);
+  request.onload = function onLoad() {
+    const data = JSON.parse(request.response);
+    const x = window.location.search.substring(4);
+    if (request.status >= 200 && request.status < 400) {
+      myFunction(data, x);
     } else {
-      video.pause();
-      document.querySelector(".PlayPause").style.background =
-        "url('./img/play.svg')";
-      document.querySelector(".PlayPause").style.backgroundSize = "contain";
+      alert('Villa kom upp!');
     }
-  });
+  };
+  request.send();
 }
 
-function PlayPauseVideo(video, div) {
-  video.addEventListener("click", function() {
-    if (video.paused) {
-      video.play();
-      document.querySelector(".PlayPause").style.background =
-        "url('./img/pause.svg')";
-      document.querySelector(".PlayPause").style.backgroundSize = "contain";
-      hidePause();
-    } else {
-      video.pause();
-      document.querySelector(".PlayPause").style.background =
-        "url('./img/play.svg')";
-      document.querySelector(".PlayPause").style.backgroundSize = "contain";
-      showPause();
-    }
-  });
-}
-
-function createPause(div) {
-  var pauseButton = document.createElement("IMG");
-  pauseButton.setAttribute("src", "./img/play.svg");
-  pauseButton.setAttribute("id", "pauseButton");
-  div.appendChild(pauseButton);
-}
-
-function showPause() {
-  document.getElementById("pauseButton").style.visibility = "visible";
-}
-
-function hidePause() {
-  document.getElementById("pauseButton").style.visibility = "hidden";
-}
-
-function Mute(clicky, video) {
-  clicky.addEventListener("click", function() {
-    if (video.muted === false) {
-      video.muted = true;
-      document.querySelector(".Mute").style.background =
-        "url('./img/unmute.svg')";
-      document.querySelector(".Mute").style.backgroundSize = "contain";
-    } else {
-      video.muted = false;
-      document.querySelector(".Mute").style.background =
-        "url('./img/mute.svg')";
-      document.querySelector(".Mute").style.backgroundSize = "contain";
-    }
-  });
-}
-function Back(clicky, video) {
-  clicky.addEventListener("click", function() {
-    video.currentTime = video.currentTime - 3;
-  });
-}
-function Forward(clicky, video) {
-  clicky.addEventListener("click", function() {
-    video.currentTime = video.currentTime + 3;
-  });
-}
-
-function FullScreen(clicky, video) {
-  video.webkitRequestFullscreen();
-  clicky.addEventListener("click", this.fullS.bind(video));
-}
-function fullS() {
-  this.webkitRequestFullscreen();
-}
+document.addEventListener('DOMContentLoaded', () => {
+  fetchJson();
+});
