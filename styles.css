@@ -13,6 +13,15 @@ a{
   text-decoration: none;
   font-family: Helvetica, Arial, sans-serif;
 }
+a{
+  color: #fff;
+  text-decoration: none;
+
+}
+.DIV{
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 .cat__0 {
       margin-top: 20px;
