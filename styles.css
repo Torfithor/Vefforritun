@@ -11,10 +11,7 @@ body {
 a{
   color: #fff;
   text-decoration: none;
-}
-.DIV{
-  margin-left: 10%;
-  margin-right: 10%;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .cat__0 {
@@ -31,12 +28,15 @@ a{
       margin-left: 10px;
     }
 
-.h2 {
+h2 {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding: 0 10px;
   font-size: 2rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: Helvetica, Arial, sans-serif;
     }
 
 .videoContainer__0 {
