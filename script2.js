@@ -21,7 +21,7 @@ function myFunction(data, videoId) {
   var text = document.createTextNode(data.videos[videoId-1].title);
   videotitle.appendChild(text);
   var body = document.querySelector("body");
-  var a = document.createElement("div");
+  var a = document.createElement("a");
   var div = document.createElement("div");
   var video = document.createElement("VIDEO");
   var divelement = document.createElement("div");
