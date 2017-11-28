@@ -8,6 +8,14 @@ body {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.85);
   }
+a{
+  color: #fff;
+  text-decoration: none;
+}
+.DIV{
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 .cat__0 {
       margin-top: 20px;
@@ -48,10 +56,14 @@ body {
   flex-wrap: wrap;
     justify-content: space-between;
 }
-.img {
-  width: 100%;
+img {
+  width: 33em;
+  padding: 1em;
 }
-
+.DIV{
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .poster{
   margin:none;
   padding: none;

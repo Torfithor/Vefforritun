@@ -68,7 +68,7 @@ function myFunction(data, videoId) {
   body.appendChild(videotitle);
   body.appendChild(a);
 
-  hidePause();  
+  hidePause();
 }
 
 function PlayPause(clicky, video) {

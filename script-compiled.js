@@ -25,6 +25,7 @@ function fetchJson() {
 function showVideoList(data) {
   var body = document.querySelector("body");
   var div = document.createElement("div");
+  div.className = "DIV";
   var catNo = data.categories.length;
 
   showCategory(data);
