@@ -16,9 +16,6 @@ body {
       margin-left: 10px;
 }
 
-
-}
-
 .cat__2 {
       margin-top: 20px;
       margin-right: 10px;
@@ -37,16 +34,19 @@ body {
 .videoContainer__0 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .videoContainer__1 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .videoContainer__2 {
   display: flex;
   flex-wrap: wrap;
+    justify-content: space-between;
 }
 .img {
   width: 100%;
