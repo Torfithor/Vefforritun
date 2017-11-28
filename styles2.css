@@ -22,10 +22,16 @@ img#pauseButton {
  background-size:contain;
  background-position: center;
 }
-
+a{
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
 div {
   display: flex;
   justify-content: center;
+  font-family: Arial, sans-serif;
+
 }
 
 h3 {

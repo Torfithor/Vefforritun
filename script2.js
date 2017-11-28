@@ -18,7 +18,7 @@ function myFunction(data, videoId) {
   var dataVideos = data.videos[videoId - 1].video;
 
   var videotitle = document.createElement("h3");
-  var text = document.createTextNode(data.videos[videoId-1].title);
+  var text = document.createTextNode(data.videos[videoId - 1].title);
   videotitle.appendChild(text);
   var body = document.querySelector("body");
   var a = document.createElement("a");
@@ -107,7 +107,7 @@ function PlayPauseVideo(video, div) {
 
 function createPause(div) {
   var pauseButton = document.createElement("IMG");
-  pauseButton.setAttribute("src", './img/play.svg');
+  pauseButton.setAttribute("src", "./img/play.svg");
   pauseButton.setAttribute("id", "pauseButton");
   div.appendChild(pauseButton);
 }
