@@ -1,19 +1,19 @@
-'use strict';
+"use strict";
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   fetchJson();
 });
 
 function fetchJson() {
   var request = new XMLHttpRequest();
 
-  request.open('GET', './videos.json', true);
+  request.open("GET", "./videos.json", true);
   request.onload = function () {
     var data = JSON.parse(request.response);
     if (request.status >= 200 && request.status < 400) {
       showVideoList(data);
     } else {
-      alert('Villa kom upp!');
+      alert("Villa kom upp!");
     }
   };
   request.send();
@@ -25,6 +25,7 @@ function fetchJson() {
 function showVideoList(data) {
   var body = document.querySelector("body");
   var div = document.createElement("div");
+  div.className = "DIV";
   var catNo = data.categories.length;
 
   showCategory(data);
@@ -64,7 +65,6 @@ function showVideoList(data) {
     }
 
     function showDataDivs(videoID) {
-
       var div3 = document.createElement("div");
       div3.setAttribute("class", "vid__" + (videoID + 1));
       div4.appendChild(div3);
@@ -75,20 +75,17 @@ function showVideoList(data) {
       div3.appendChild(a);
 
       /*  var div4 = document.createElement("div");
-        a.appendChild(div4);
-        div4.setAttribute("id", "poster__" + i + "__" + (videoID + 1));
-      
-        var div5 = document.createElement("div");
-        a.appendChild(div5);
-        div5.setAttribute("id", "title__" + i + "__" + (videoID + 1));
-      
-        var div6 = document.createElement("div");
-        a.appendChild(div6);
-        div6.setAttribute("id", "created__" + i + "__" + (videoID + 1));
-      
-        var div7 = document.createElement("div");
-        a.appendChild(div7);
-        div7.setAttribute("id", "duration__" + i + "__" + (videoID + 1));
+      a.appendChild(div4);
+      div4.setAttribute("id", "poster__" + i + "__" + (videoID + 1));
+      var div5 = document.createElement("div");
+      a.appendChild(div5);
+      div5.setAttribute("id", "title__" + i + "__" + (videoID + 1));
+      var div6 = document.createElement("div");
+      a.appendChild(div6);
+      div6.setAttribute("id", "created__" + i + "__" + (videoID + 1));
+      var div7 = document.createElement("div");
+      a.appendChild(div7);
+      div7.setAttribute("id", "duration__" + i + "__" + (videoID + 1));
       */
     }
 
