@@ -9,17 +9,16 @@ html {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-
 div {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 h3 {
   text-align: center;
 }
 
-video{
+video {
   display: flex;
   margin: auto;
   text-align: center;
