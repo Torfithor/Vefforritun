@@ -30,6 +30,8 @@ function myFunction(data, videoId) {
   var buttonPlayPause = document.createElement("button");
   buttonPlayPause.className = "PlayPause";
   PlayPause(buttonPlayPause, video);
+  createPause(a);
+  PlayPauseVideo(video, a);
 
   var buttonMute = document.createElement("button");
   buttonMute.className = "Mute";
@@ -65,6 +67,8 @@ function myFunction(data, videoId) {
   a.appendChild(div);
   body.appendChild(videotitle);
   body.appendChild(a);
+
+  hidePause();  
 }
 
 function PlayPause(clicky, video) {
@@ -81,6 +85,39 @@ function PlayPause(clicky, video) {
       document.querySelector(".PlayPause").style.backgroundSize = "contain";
     }
   });
+}
+
+function PlayPauseVideo(video, div) {
+  video.addEventListener("click", function() {
+    if (video.paused) {
+      video.play();
+      document.querySelector(".PlayPause").style.background =
+        "url('./img/pause.svg')";
+      document.querySelector(".PlayPause").style.backgroundSize = "contain";
+      hidePause();
+    } else {
+      video.pause();
+      document.querySelector(".PlayPause").style.background =
+        "url('./img/play.svg')";
+      document.querySelector(".PlayPause").style.backgroundSize = "contain";
+      showPause();
+    }
+  });
+}
+
+function createPause(div) {
+  var pauseButton = document.createElement("IMG");
+  pauseButton.setAttribute("src", './img/play.svg');
+  pauseButton.setAttribute("id", "pauseButton");
+  div.appendChild(pauseButton);
+}
+
+function showPause() {
+  document.getElementById("pauseButton").style.visibility = "visible";
+}
+
+function hidePause() {
+  document.getElementById("pauseButton").style.visibility = "hidden";
 }
 
 function Mute(clicky, video) {
